@@ -7,10 +7,21 @@ export default function createPreview(issueType: string, values: any) {
 
 function createBugPreview({  
   steps,
+  version,
+  reproduction,
 }: any) {
   return `
 
-### Steps to reproduce
+### Environment
+- **tnpm version**:
+- **node version**:
+- **egg version**: ${version}
+- **plugin name**:
+- **plugin version**:
+- **platform**:
+- **git repo**: ${reproduction}
+
+### Reproduction
 ${steps}
 
 `.trim();
@@ -18,6 +29,7 @@ ${steps}
 
 function createFeaturePreview({ motivation, proposal }: any) {
   return `
+
 ### What problem does this feature solve?
 ${motivation}
 

@@ -45,7 +45,7 @@ class App extends React.Component<{}, AppState> {
         localStorage.setItem('locale', this.state.locale);
       },
     );
-  };
+  }
 
   render() {
     const { locale } = this.state;
