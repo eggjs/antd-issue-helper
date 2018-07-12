@@ -32,7 +32,7 @@
     "babel-preset-react-app": "^3.1.0",
     "html-loader": "^0.5.1",
     "markdown-loader": "^2.0.1",
-    "react-app-rewire-less-modules": "andriijas/react-app-rewire-less-modules",
+    "react-app-rewire-less-modules": "^1.0.0",
     "react-app-rewired": "^1.3.5",
     "ts-import-plugin": "^1.4.2"
   }
