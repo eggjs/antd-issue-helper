@@ -1,9 +1,10 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { IntlProvider, addLocaleData } from 'react-intl';
 import { Layout, Button } from 'antd';
-import Intro from './Intro';
-import IssueForm from './IssueForm';
+import { IntlProvider, addLocaleData } from 'react-intl';
+
+import Intro from './components/Intro/';
+import Issue from './components/Issue/';
 import logo from './logo.svg';
 
 const styles: any = require('./App.module.less');
@@ -20,6 +21,8 @@ function getLocale() {
   }
   return window.navigator.language.toLowerCase() === 'zh-cn' ? 'zh' : 'en';
 }
+
+console.log(styles.header);
 
 class App extends React.Component<{}, AppState> {
   static childContextTypes = {
@@ -45,7 +48,7 @@ class App extends React.Component<{}, AppState> {
         localStorage.setItem('locale', this.state.locale);
       },
     );
-  }
+  };
 
   render() {
     const { locale } = this.state;
@@ -70,7 +73,7 @@ class App extends React.Component<{}, AppState> {
         <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
           <Content className={styles.content}>
             <Intro />
-            <IssueForm />
+            <Issue />
           </Content>
         </IntlProvider>
         <Footer style={{ textAlign: 'center' }}>

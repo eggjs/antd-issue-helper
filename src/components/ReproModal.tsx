@@ -1,20 +1,20 @@
 import * as React from 'react';
 import { Modal } from 'antd';
 import { FormattedMessage } from 'react-intl';
-import I18n from './I18n';
+import I18n from '../i18n';
 
-export interface IntroModalProps {
+export interface ReproModalProps {
   visible: boolean;
   onCancel: () => any;
 }
 
-export default function IntroModal({ visible, onCancel }: IntroModalProps) {
+export default function ReproModal({ visible, onCancel }: ReproModalProps) {
   return (
     <Modal
       title={
         <FormattedMessage
-          id="intro.modal"
-          defaultMessage="The reason behind our strict issue policy"
+          id="repro.about"
+          defaultMessage="About Reproductions"
         />
       }
       footer=""
@@ -22,7 +22,7 @@ export default function IntroModal({ visible, onCancel }: IntroModalProps) {
       onCancel={onCancel}
       width="680px"
     >
-      <I18n className="paragraph" id="introModal" />
+      <I18n className="paragraph" id="reproModal" />
     </Modal>
   );
 }

@@ -9,3 +9,4 @@ const enMessages: any = require('./locales/en.json');
   locale: 'en-US',
   data: appLocaleData,
 };
+

@@ -3,13 +3,13 @@ import { Form, Col, Input, Select, Button } from 'antd';
 import { WrappedFormUtils } from 'antd/lib/form/Form';
 import { FormattedMessage } from 'react-intl';
 import * as api from './api';
-import BugForm from './BugForm';
-import FeatureForm from './FeatureForm';
-import PreviewModal from './PreviewModal';
-import ReproModal from './ReproModal';
-import createPreview from './createPreview';
+import BugForm from './Bug';
+import FeatureForm from './Feature';
+import PreviewModal from '../PreviewModal';
+import ReproModal from '../ReproModal';
+import createPreview from '../createPreview';
 
-const styles: any = require('./IssueForm.module.less');
+const styles: any = require('./index.module.less');
 const FormItem = Form.Item;
 const { Option } = Select;
 

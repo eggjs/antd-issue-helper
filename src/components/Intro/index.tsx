@@ -1,8 +1,8 @@
 import  * as React from 'react';
 import IntroModal from './IntroModal';
-import I18n from './I18n';
+import I18n from '../../i18n';
 
-const styles: any = require('./Intro.module.less');
+const styles: any = require('./index.module.less');
 
 export interface IntroState {
   modalVisible: boolean;

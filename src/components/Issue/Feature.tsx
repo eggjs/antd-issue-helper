@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Form, Input } from 'antd';
 import { WrappedFormUtils } from 'antd/lib/form/Form';
 import { FormattedMessage } from 'react-intl';
-import I18n from './I18n';
+import I18n from '../../i18n/';
 
 const FormItem = Form.Item;
 const { TextArea } = Input;
