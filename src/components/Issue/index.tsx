@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Form, Col, Input, Select, Button } from 'antd';
+import { Form, Col, Input, Select, Button, Spin } from 'antd';
 import { WrappedFormUtils } from 'antd/lib/form/Form';
 import { FormattedMessage } from 'react-intl';
 import * as api from './api';
@@ -22,6 +22,7 @@ export interface IssueFormState {
   similarIssues: any[];
   preview: boolean;
   reproModal: boolean;
+  loadingIssues: boolean;
 }
 
 const params: any = location.search
@@ -47,6 +48,7 @@ class IssueForm extends React.Component<IssueFormProps, IssueFormState> {
       similarIssues: [],
       preview: false,
       reproModal: false,
+      loadingIssues: false
     };
   }
 
@@ -80,11 +82,12 @@ class IssueForm extends React.Component<IssueFormProps, IssueFormState> {
     const repo = form.getFieldValue('repo');
     const title = form.getFieldValue('title');
     if (title) {
+      this.setState({loadingIssues: true});
       api
         .fetchIssues(repo, title)
-        .then(issues => this.setState({ similarIssues: issues }));
+        .then(issues => this.setState({ similarIssues: issues, loadingIssues: false }));
     } else {
-      this.setState({ similarIssues: [] });
+      this.setState({ similarIssues: [], loadingIssues: false });
     }
   }
 
@@ -143,7 +146,7 @@ ${content}
 
   render() {
     const { form } = this.props;
-    const { repoVersions, similarIssues, preview, reproModal } = this.state;
+    const { repoVersions, similarIssues, preview, reproModal, loadingIssues } = this.state;
     const { getFieldDecorator, getFieldValue } = form;
     const issueType = getFieldValue('type');
     const content = this.getContent(issueType);
@@ -240,6 +243,7 @@ ${content}
               rules: [{ required: true }],
             })(<Input onBlur={this.handleTitleBlur} />)}
           </FormItem>
+          {loadingIssues ? (<Spin />) : ''}
           {similarIssues.length > 0 && similarIssuesList}
           {issueType !== 'feature' ? (
             <BugForm
